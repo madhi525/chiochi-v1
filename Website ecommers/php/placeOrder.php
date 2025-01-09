@@ -41,7 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST'){
     );
 
     $snapToken = \Midtrans\Snap::getSnapToken($params);
-    echo $snapToken; // Kirim token kembali ke JavaScript
+    http_response_code(200);
+    echo json_encode(['token' => $snapToken]); // Kirim token kembali ke JavaScript
     } else {
         echo 'Data tidak lengkap'; // Tampilkan pesan error jika data tidak lengkap
     }
