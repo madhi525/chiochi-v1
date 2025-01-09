@@ -1,0 +1,14 @@
+{
+  "functions": {
+    "api/placeOrder.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  },
+  "routes": [
+    {
+      "src": "/php/placeOrder.php",
+      "methods": ["POST"],
+      "dest": "/api/placeOrder.php"
+    }
+  ]
+}
