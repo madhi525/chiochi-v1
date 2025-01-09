@@ -16,13 +16,6 @@ document.addEventListener('click', function (e) {
     }
    
 })
-
-
-
-
-
-
-
 ////////////
 const searchForm = document.querySelector('.search-form');
 const searchBox = document.querySelector('#search-box');
@@ -39,11 +32,7 @@ let totalAmount = 0; // Added this line
 // checkoutBtn.addEventListener('click', async function (e) {
 //     e.preventDefault();
 // });
-  
-
-        
-
-        searchButton.onclick = (e) => {
+       searchButton.onclick = (e) => {
             e.preventDefault();
             searchForm.classList.toggle('active');
             searchBox.focus();
@@ -187,6 +176,10 @@ checkoutBtn.addEventListener('click', async function (e) {
         // Log data untuk verifikasi
          console.log(formData);
     try {
+        const handleFetchError = (response) => {
+            console.error('Fetch error : ', response.statusText);
+            return response.text().then((text)=> Promise.reject(new Error(text)));
+        }
         const response = await fetch('php/placeOrder.php', {
             method: 'POST',
             headers: {
@@ -194,7 +187,7 @@ checkoutBtn.addEventListener('click', async function (e) {
             },
             body: JSON.stringify(formData) // Mengubah objek menjadi JSON
         
-        });
+        }).catch(handleFetchError);
         
         const token = await response.text(); // Ambil token dari response
          console.log(token);
@@ -209,7 +202,4 @@ checkoutBtn.addEventListener('click', async function (e) {
     } catch (err) {
         console.log(err.message); // Tampilkan error jika ada
     }
-
-    
-    
 });
