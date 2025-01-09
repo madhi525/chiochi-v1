@@ -1,4 +1,5 @@
 <?php
+phpinfo();
 /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
 composer require midtrans/midtrans-php
                               
