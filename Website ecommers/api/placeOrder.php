@@ -1,5 +1,4 @@
 <?php
-phpinfo();
 if (!function_exists('curl_init')) { 
   die('CURL is not installed!'); }
 /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
