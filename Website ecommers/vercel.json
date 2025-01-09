@@ -8,7 +8,7 @@
     {
       "src": "/php/placeOrder.php",
       "methods": ["POST"],
-      "dest": "/api/placeOrder.php"
+      "dest": "/php/placeOrder.php"
     }
   ]
 }
